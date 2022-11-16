@@ -1,0 +1,30 @@
+{
+    "headline": "Hummus",
+    "url": "https://www.valdemarsro.dk/humus/",
+    "stats": {
+        "Tid i alt": "10 min.",
+        "Arbejdstid": "10 min.",
+        "Holdbarhed": "4 dage",
+        "Antal": "4 pers. "
+    },
+    "ingredients": {
+        "Hovedret": [
+            "1 spsk tahin",
+            "0,50 citron, saften herfra",
+            "1 dåse kikærter, drænet og skyllet",
+            "2 fed hvidløg, finthakkede",
+            "1 tsk stødt spidskommen",
+            "1 knivspids cayenne peber",
+            "0,50 dl koldt vand + evt 1 isterning",
+            "3 spsk olivenolie",
+            "flagesalt",
+            "sort peber, friskkværnet"
+        ]
+    },
+    "method": [
+        "Start med at komme tahin og citronsaft i blenderen eller foodprocessoren og kør i et minut.",
+        "Tilsæt derefter de andre ingredienser og kør i yderligere et minut.",
+        "Kom gerne en isterning ved, det gør hummussen endnu mere cremet. Tilsæt evt. lidt ekstra koldt vand, hvis konsistensen ønskes mere cremet.",
+        "Smag til med citron, olie, salt og peber."
+    ]
+}
