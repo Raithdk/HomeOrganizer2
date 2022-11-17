@@ -72,7 +72,10 @@ def writeValdemarsroRecipeJson(url):
 
     return recipe
 
+# TODO : Implement valdemarsro search (Can use their own search hehe)
 
+
+# TODO : Should be in its own class
 def loadRecipe(name):
     json_directory = os.path.dirname(__file__) + recipeJsonDirectory
     path_json = json_directory + str(name).lower() + ".json"

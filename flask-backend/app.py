@@ -26,4 +26,10 @@ def getRecipe():
     if 'err' in recipeData:
         return recipeData, 404
     return recipeData, 200
-    
+
+@app.route('/getRecipes', methods=["GET"])
+def getRecipes():
+    #Either get all recipes, or get the first 10 or sumting
+    return
+
+
