@@ -1,3 +1,6 @@
+# Custom gitignore
+recipesJson/
+
 # Created by https://www.toptal.com/developers/gitignore/api/macos,flask,python,pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,flask,python,pycharm
 

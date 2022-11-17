@@ -5,6 +5,12 @@ import os
 from os.path import exists
 
 recipe404 = "Recipe Could not be found"
+
+recipeJsonDirectory = "/recipesJson/" #"/../recipesJson/"
+
+#
+# Method for taking a recipe from valdemarsro website and converting it a json file and putting it in the designated recipeJsonDirectory
+#
 def writeValdemarsroRecipeJson(url):
 
     if not "valdemarsro" in url:
@@ -57,7 +63,7 @@ def writeValdemarsroRecipeJson(url):
 
     recipe["method"] = methodLine
 
-    json_directory = os.path.dirname(__file__) + "/recipesJson/" #"/../recipesJson/"
+    json_directory = os.path.dirname(__file__) + recipeJsonDirectory
     path_json = json_directory + str(recipe["headline"]).lower() + ".json"
 
     with open(path_json, "w") as outfile:
@@ -67,7 +73,7 @@ def writeValdemarsroRecipeJson(url):
 
 
 def loadRecipe(name):
-    json_directory = os.path.dirname(__file__) + "/../recipesJson/"
+    json_directory = os.path.dirname(__file__) + recipeJsonDirectory
     path_json = json_directory + str(name).lower() + ".json"
     json_file = None
 
@@ -75,6 +81,6 @@ def loadRecipe(name):
         with open(path_json) as file:
             json_file = json.load(file)
     if json_file is None:
-        json_file = {"headline": "The Recipe: " + name + " could not be found"}
+        json_file = {'err': "The Recipe: \"" + name + "\" could not be found"}
 
     return json_file
