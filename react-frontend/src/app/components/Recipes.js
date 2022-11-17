@@ -4,9 +4,10 @@ import {Button, Form, InputGroup } from "react-bootstrap";
 
 function Recipes(){
     const [recipeUrl, setRecipeUrl] = useState("");
+    const [recipe, setRecipe] = useState("");
 
     function requestRecipe() {
-        fetch('http://localhost:5000/post',{ 
+        fetch('http://localhost:5000/recipe',{ 
             method: 'Post',
             body: JSON.stringify({
                 'url': {recipeUrl}
@@ -17,6 +18,7 @@ function Recipes(){
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
+                setRecipe(data)
                 //handle request return
             })
             .catch((err) => {
@@ -39,6 +41,8 @@ function Recipes(){
                     >Add new Recipe</Button>
                 </InputGroup>
             </div>
+
+            <h1>{recipe.headline}</h1>
         </div>
     );
 }
