@@ -12,7 +12,7 @@ def hello_world():
     return 'This is my first API call!'
 
 
-@app.route('/recipe', methods=["POST"])
+@app.route('/addRecipe', methods=["POST"])
 def postRecipe():
     input_json = request.get_json(force=True)
     recipeUrl =  input_json['url']

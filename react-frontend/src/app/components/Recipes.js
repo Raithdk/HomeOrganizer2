@@ -7,7 +7,7 @@ function Recipes(){
     const [recipe, setRecipe] = useState("");
 
     function requestRecipe() {
-        fetch('http://localhost:5000/recipe',{ 
+        fetch('http://localhost:5000/addRecipe',{ 
             method: 'Post',
             body: JSON.stringify({
                 'url': {recipeUrl}

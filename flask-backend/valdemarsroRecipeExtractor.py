@@ -6,6 +6,7 @@ from os.path import exists
 
 recipe404 = "Recipe Could not be found"
 
+## Should be put in and ENV file
 recipeJsonDirectory = "/recipesJson/" #"/../recipesJson/"
 
 #
