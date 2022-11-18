@@ -1,14 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import json
-import os
-from os.path import exists
-from jsonfilehandler import writeRecipe
-
-recipe404 = "Recipe Could not be found"
-
-## Should be put in an ENV file
-recipeJsonDirectory = "/recipesJson/" #"/../recipesJson/"
+from recipe.recipefilehandler import writeRecipe
 
 #
 # Method for taking a recipe from valdemarsro website and converting it a json file and putting it in the designated recipeJsonDirectory
@@ -42,6 +34,9 @@ def writeValdemarsroRecipeJson(url):
     ingredientList = []
     recipePart = "Hovedret"
     recipePartDict = {}
+
+    ## TODO : Save the order found
+
     for item in ingredientSoup:
         if 'class' in item.attrs:
             # If new ingredient header found
@@ -66,8 +61,29 @@ def writeValdemarsroRecipeJson(url):
     recipe["method"] = methodLine
 
     writeRecipe(recipe)
-    
+
     return recipe
 
-# TODO : Implement valdemarsro search (Can use their own search hehe)
+# Amount allows the user to choose how many results they want to get. 
+def searchValdemarsro(keyword, amount = 5):
+    url = 'https://www.valdemarsro.dk/soeg/?terms=&terms2=&q=' + keyword
+    try:
+        r = requests.get(url)
+    except requests.exceptions.RequestException as e:
+        raise print(e)
 
+    searchResults = []
+    soup = BeautifulSoup(r.content, 'html.parser')
+
+    for item in soup.find_all(class_="post-list-item-title")[:amount]:
+        input = {}
+        content = item.find_next(class_='post-list-item-title').find_next('a')
+        picture = item.find_next('img')
+
+        input['name'] = content.text
+        input['url'] = content['href']
+        input['picUrl'] = picture['src']
+        
+        searchResults.append(input)
+ 
+    return searchResults

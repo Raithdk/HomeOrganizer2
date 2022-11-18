@@ -2,7 +2,8 @@ from flask import Flask, request, jsonify
 import json as JSON
 from flask_cors import CORS
 from recipe import valdemarsroRecipeExtractor as vre
-from recipe import jsonfilehandler as jsfh
+from recipe import recipefilehandler as jsfh
+
 
 app = Flask(__name__)
 CORS(app)
@@ -17,7 +18,7 @@ def hello_world():
 def postRecipe():
     input_json = request.get_json(force=True)
     recipeUrl =  input_json['url']
-    
+
     return jsonify(vre.writeValdemarsroRecipeJson(recipeUrl['recipeUrl']))
 
 @app.route('/getRecipe')
@@ -30,7 +31,9 @@ def getRecipe():
 
 @app.route('/getRecipes', methods=["GET"])
 def getRecipes():
-    #Either get all recipes, or get the first 10 or sumting
-    return
+    searchKeyword = request.args.get('keyword')
+    result = vre.searchValdemarsro(searchKeyword)
+
+    return jsonify(result)
 
 
