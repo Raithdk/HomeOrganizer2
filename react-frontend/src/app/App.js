@@ -8,7 +8,7 @@ import ToDoProvider from './components/ToDoProvider';
 
 
 const Todo = lazy(() => import("./components/ToDo"))
-const Recipes = lazy(() => import("./components/Recipes"))
+const RecipePage = lazy(() => import("./components/RecipePage"))
 
 
 export default function App() {
@@ -21,7 +21,7 @@ export default function App() {
               <Routes>
                 <Route index element={<Frontpage/>} />
                 <Route path="/todo" element={<Todo/>} />
-                <Route path="/recipes" element={<Recipes/>}></Route>
+                <Route path="/recipes" element={<RecipePage/>}></Route>
               </Routes>
           </Suspense>
         </BrowserRouter>

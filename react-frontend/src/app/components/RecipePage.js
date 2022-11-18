@@ -1,9 +1,10 @@
 
 import React, { useState } from "react";
 import {Button, Form, InputGroup } from "react-bootstrap";
+import Recipe from './/Recipe'
 
-function Recipes(){
-    const [recipeUrl, setRecipeUrl] = useState("");
+function RecipePage(){
+    const [recipeUrl, setRecipeUrl] = useState("https://www.valdemarsro.dk/lasagne/");
     const [recipe, setRecipe] = useState("");
 
     function requestRecipe() {
@@ -42,9 +43,9 @@ function Recipes(){
                 </InputGroup>
             </div>
 
-            <h1>{recipe.headline}</h1>
+            <Recipe recipe={recipe}></Recipe>
         </div>
     );
 }
 
-export default Recipes
+export default RecipePage
