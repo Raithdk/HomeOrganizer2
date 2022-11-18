@@ -3,10 +3,11 @@ from bs4 import BeautifulSoup
 import json
 import os
 from os.path import exists
+from jsonfilehandler import writeRecipe
 
 recipe404 = "Recipe Could not be found"
 
-## Should be put in and ENV file
+## Should be put in an ENV file
 recipeJsonDirectory = "/recipesJson/" #"/../recipesJson/"
 
 #
@@ -64,27 +65,9 @@ def writeValdemarsroRecipeJson(url):
 
     recipe["method"] = methodLine
 
-    json_directory = os.path.dirname(__file__) + recipeJsonDirectory
-    path_json = json_directory + str(recipe["headline"]).lower() + ".json"
-
-    with open(path_json, "w") as outfile:
-        json.dump(recipe, outfile, ensure_ascii=False, indent=4)
-
+    writeRecipe(recipe)
+    
     return recipe
 
 # TODO : Implement valdemarsro search (Can use their own search hehe)
 
-
-# TODO : Should be in its own class
-def loadRecipe(name):
-    json_directory = os.path.dirname(__file__) + recipeJsonDirectory
-    path_json = json_directory + str(name).lower() + ".json"
-    json_file = None
-
-    if exists(path_json):
-        with open(path_json) as file:
-            json_file = json.load(file)
-    if json_file is None:
-        json_file = {'err': "The Recipe: \"" + name + "\" could not be found"}
-
-    return json_file
