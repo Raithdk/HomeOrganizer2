@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import {Button, Form, InputGroup } from "react-bootstrap";
 import Recipe from './/Recipe'
+import RecipeSearchElem from "./RecipeSearchElem";
 
 function RecipePage(){
     const [recipeUrl, setRecipeUrl] = useState("https://www.valdemarsro.dk/lasagne/");
     const [recipe, setRecipe] = useState("");
+
 
     function requestRecipe() {
         fetch('http://localhost:5000/addRecipe',{ 
@@ -29,6 +31,7 @@ function RecipePage(){
         
     }
 
+    //TODO : see if form can be an element, taking a "onclick" action with a parameter
     return(
         <div>
             <h1>Recipes!</h1>
@@ -42,7 +45,8 @@ function RecipePage(){
                     >Add new Recipe</Button>
                 </InputGroup>
             </div>
-
+        
+            <RecipeSearchElem></RecipeSearchElem>
             <Recipe recipe={recipe}></Recipe>
         </div>
     );

@@ -19,7 +19,6 @@ const ToDoProvider = ({ children }) =>{
         }
         setToDoList([...toDolist, newTodo]);
         
-        
     };
 
     const deleteTodo = (id) =>{
@@ -53,6 +52,7 @@ const ToDoProvider = ({ children }) =>{
         addToDone,
         deleteToDone,
     };
+    
     return (
         <TodoContext.Provider value={contextValue}>{children}</TodoContext.Provider>
     )
