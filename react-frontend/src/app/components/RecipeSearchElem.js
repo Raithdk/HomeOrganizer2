@@ -22,6 +22,7 @@ export default function RecipeSearchElem(){
                 console.log(data);
                 setSearchResult(data)
                 //handle request return
+                // eg. here are results for musakk
             })
             .catch((err) => {
                 console.log(err.message)
@@ -32,7 +33,7 @@ export default function RecipeSearchElem(){
 
     return(
         <div>
-            <div className="mx-5">
+            <div className="mx-5 my-2">
                 <InputGroup >
                     <Form.Control
                     placeholder={searchKey}

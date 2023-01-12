@@ -35,7 +35,7 @@ function RecipePage(){
     return(
         <div>
             <h1>Recipes!</h1>
-            <div className="mx-5">
+            <div className="mx-5 my-2">
                 <InputGroup >
                     <Form.Control
                     placeholder={recipeUrl}
@@ -45,8 +45,8 @@ function RecipePage(){
                     >Add new Recipe</Button>
                 </InputGroup>
             </div>
-        
-            <RecipeSearchElem></RecipeSearchElem>
+
+            <RecipeSearchElem/>
             <Recipe recipe={recipe}></Recipe>
         </div>
     );
