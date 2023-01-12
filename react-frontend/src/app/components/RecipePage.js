@@ -31,10 +31,14 @@ function RecipePage(){
         
     }
 
-    //TODO : see if form can be an element, taking a "onclick" action with a parameter
+    //TODO : Seperate add new recipe into an element
     return(
         <div>
             <h1>Recipes!</h1>
+
+
+            <RecipeSearchElem/>
+            <hr></hr>
             <div className="mx-5 my-2">
                 <InputGroup >
                     <Form.Control
@@ -45,8 +49,6 @@ function RecipePage(){
                     >Add new Recipe</Button>
                 </InputGroup>
             </div>
-
-            <RecipeSearchElem/>
             <Recipe recipe={recipe}></Recipe>
         </div>
     );

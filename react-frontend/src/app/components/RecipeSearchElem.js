@@ -1,12 +1,12 @@
 
 import React, { useState } from "react";
-import {Button, Form, InputGroup, Container, Row, Col} from "react-bootstrap";
+import {Button, Form, InputGroup} from "react-bootstrap";
 import RecipeGrid from "./RecipeGrid";
 
 
 export default function RecipeSearchElem(){
     const [searchKey, setSearchKey] = useState("musak");
-    const [searchResult, setSearchResult] = useState(searchRecipes);
+    const [searchResult, setSearchResult] = useState("");
 
     
 
@@ -43,7 +43,7 @@ export default function RecipeSearchElem(){
                     >Find Recipes</Button>
                 </InputGroup>
             </div>
-            
+        
             <RecipeGrid  searchResult={searchResult}></RecipeGrid>
           
         </div>
