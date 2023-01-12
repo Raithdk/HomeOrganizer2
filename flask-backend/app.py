@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-import json as JSON
 from flask_cors import CORS
 from recipe import valdemarsroRecipeExtractor as vre
 from recipe import recipefilehandler as jsfh
@@ -21,7 +20,7 @@ def postRecipe():
 
     return jsonify(vre.writeValdemarsroRecipeJson(recipeUrl['recipeUrl']))
 
-@app.route('/getRecipe')
+@app.route('/getRecipe', methods=["GET"])
 def getRecipe():
     recipeName = request.args.get('recipeName')
     recipeData = jsfh.loadRecipe(recipeName)
@@ -29,7 +28,7 @@ def getRecipe():
         return recipeData, 404
     return recipeData, 200
 
-@app.route('/getRecipes', methods=["GET"])
+@app.route('/findRecipes', methods=["GET"])
 def getRecipes():
     searchKeyword = request.args.get('keyword')
     result = vre.searchValdemarsro(searchKeyword)
